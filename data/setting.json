@@ -1,0 +1,13 @@
+{
+  "setting": {
+    "title": "外贸工具箱",
+    "subtitle": "专业的外贸工具集合",
+    "description": "提供各种实用的外贸工具，帮助您更高效地开展国际贸易业务",
+    "keywords": "外贸工具,国际贸易,跨境电商",
+    "theme": "light",
+    "layout": "normal",
+    "links": "<a href=\"#about-us\">关于我们</a> | <a href=\"#contact-us\">联系我们</a> | <a href=\"#privacy-policy\">隐私政策</a> | <a href=\"#links\">友情链接</a>",
+    "copyright": "<p>&copy; 2024 外贸工具箱 版权所有</p>",
+    "statement": "<p>本站提供的所有工具和资源仅供参考，使用前请自行判断。我们不对因使用本站工具导致的任何损失承担责任。</p><p>本站尊重知识产权，如有侵权，请联系我们删除。</p><p>本站保留对网站内容的最终解释权。</p>"
+  }
+}

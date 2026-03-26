@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">外贸工具箱</title>
+    <meta name="description" id="site-description" content="专业的外贸工具集合，提供各类实用工具帮助外贸从业者提高工作效率">
+    <meta name="keywords" id="site-keywords" content="外贸工具,外贸工具箱,外贸资源,国际贸易工具">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="外贸工具箱">
+    <meta name="copyright" content="© 2024 外贸工具箱">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <link rel="canonical" href="./">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "外贸工具箱",
+        "description": "专业的外贸工具集合，提供各类实用工具帮助外贸从业者提高工作效率",
+        "url": "./",
+        "keywords": ["外贸工具", "外贸工具箱", "外贸资源", "国际贸易工具"]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="logo-container">
+                <img id="site-logo" src="" alt="网站Logo" style="display: none; height: 60px;">
+                <div>
+                    <h1 id="site-heading">外贸工具箱</h1>
+                    <p id="site-subtitle" style="display: none;">专业的外贸工具集合</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <!-- 颜色切换按钮 -->
+                <div class="theme-toggle" id="theme-toggle">
+                    <button class="theme-btn" data-theme="light" title="切换到浅色模式">☀️</button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- 移动端弹出式侧边栏 -->
+        <div class="mobile-sidebar" id="mobile-sidebar">
+            <div class="mobile-sidebar-content">
+                <div class="mobile-sidebar-header">
+                    <h2>功能分类</h2>
+                    <button class="close-menu" id="close-menu">×</button>
+                </div>
+                <ul id="mobile-category-list">
+                    <!-- 分类列表将通过JS动态生成 -->
+                </ul>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <aside class="sidebar">
+                <h2>功能分类</h2>
+                <ul id="category-list">
+                    <!-- 分类列表将通过JS动态生成 -->
+                </ul>
+            </aside>
+            
+            <main class="tools-section">
+                <h2 id="current-category">选择分类</h2>
+                <div class="tools-grid" id="tools-grid">
+                    <!-- 工具列表将通过JS动态生成 -->
+                </div>
+            </main>
+        </div>
+        
+        <!-- 右侧悬浮广告容器 -->
+        <div class="sidebar-ads" id="sidebar-ads">
+            <!-- 广告将通过JS动态生成 -->
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div id="footer-links"></div>
+                <div id="footer-copyright"></div>
+                <div class="footer-divider"></div>
+                <div id="footer-statement"></div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

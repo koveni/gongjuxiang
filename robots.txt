@@ -1,0 +1,11 @@
+# robots.txt - 搜索引擎爬虫规则
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /data/
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/
+
+# 网站地图
+Sitemap: http://localhost:8000/sitemap.xml

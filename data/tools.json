@@ -1,0 +1,148 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "category_id": 1,
+      "name": "实时汇率查询",
+      "description": "提供全球主要货币的实时汇率换算服务",
+      "url": "https://www.xe.com/",
+      "icon": ""
+    },
+    {
+      "id": 2,
+      "category_id": 1,
+      "name": "历史汇率查询",
+      "description": "查询历史汇率数据，支持多种货币对",
+      "url": "https://www.exchangerate.com/",
+      "icon": ""
+    },
+    {
+      "id": 3,
+      "category_id": 2,
+      "name": "国际快递追踪",
+      "description": "查询国际快递包裹的实时状态",
+      "url": "https://www.17track.net/",
+      "icon": ""
+    },
+    {
+      "id": 4,
+      "category_id": 2,
+      "name": "海运查询",
+      "description": "提供海运航线和运费查询服务",
+      "url": "https://www.searates.com/",
+      "icon": ""
+    },
+    {
+      "id": 5,
+      "category_id": 3,
+      "name": "海关数据查询",
+      "description": "查询全球海关进出口数据",
+      "url": "https://www.tradecompass.com/",
+      "icon": ""
+    },
+    {
+      "id": 6,
+      "category_id": 4,
+      "name": "社交媒体营销",
+      "description": "外贸社交媒体营销工具",
+      "url": "https://www.hootsuite.com/",
+      "icon": ""
+    },
+    {
+      "id": 7,
+      "category_id": 5,
+      "name": "IP查询",
+      "description": "查询IP地址的地理位置、运营商等信息",
+      "url": "https://www.ipaddress.com/",
+      "icon": ""
+    },
+    {
+      "id": 8,
+      "category_id": 5,
+      "name": "Ping测试",
+      "description": "测试网络连接速度和延迟",
+      "url": "https://ping.eu/",
+      "icon": ""
+    },
+    {
+      "id": 9,
+      "category_id": 5,
+      "name": "端口扫描",
+      "description": "扫描网站开放的端口",
+      "url": "https://www.yougetsignal.com/tools/open-ports/",
+      "icon": ""
+    },
+    {
+      "id": 10,
+      "category_id": 6,
+      "name": "Google Analytics",
+      "description": "网站流量分析工具",
+      "url": "https://analytics.google.com/",
+      "icon": ""
+    },
+    {
+      "id": 11,
+      "category_id": 6,
+      "name": "SEMrush",
+      "description": "关键词研究和竞争对手分析工具",
+      "url": "https://www.semrush.com/",
+      "icon": ""
+    },
+    {
+      "id": 12,
+      "category_id": 6,
+      "name": "Ahrefs",
+      "description": "反向链接检查和SEO分析工具",
+      "url": "https://ahrefs.com/",
+      "icon": ""
+    },
+    {
+      "id": 13,
+      "category_id": 7,
+      "name": "WHOIS查询",
+      "description": "查询域名的注册信息",
+      "url": "https://www.whois.com/whois/",
+      "icon": ""
+    },
+    {
+      "id": 14,
+      "category_id": 7,
+      "name": "域名注册",
+      "description": "注册和管理域名",
+      "url": "https://www.godaddy.com/",
+      "icon": ""
+    },
+    {
+      "id": 15,
+      "category_id": 7,
+      "name": "域名价值评估",
+      "description": "评估域名的市场价值",
+      "url": "https://www.estibot.com/",
+      "icon": ""
+    },
+    {
+      "id": 16,
+      "category_id": 8,
+      "name": "SSL检查",
+      "description": "检查网站SSL证书的有效性",
+      "url": "https://www.ssllabs.com/ssltest/",
+      "icon": ""
+    },
+    {
+      "id": 17,
+      "category_id": 8,
+      "name": "网站安全扫描",
+      "description": "扫描网站的安全漏洞",
+      "url": "https://www.sucuri.net/",
+      "icon": ""
+    },
+    {
+      "id": 18,
+      "category_id": 8,
+      "name": "密码生成器",
+      "description": "生成强密码",
+      "url": "https://passwordsgenerator.net/",
+      "icon": ""
+    }
+  ]
+}
