@@ -1,0 +1,23 @@
+service: gongjuxiang
+
+provider:
+  name: aliyun
+  runtime: nodejs16
+
+functions:
+  app:
+    handler: server.handler
+    events:
+      - http:
+          path: /
+          method: any
+      - http:
+          path: /{proxy+}
+          method: any
+
+resources:
+  Resources:
+    AssetsBucket:
+      Type: ALIYUN::OSS::Bucket
+      Properties:
+        BucketName: gongjuxiang-assets

@@ -1,10 +1,20 @@
 {
   "config": {
-    "assets": {
-      "dir": "./"
-    },
     "function": {
-      "jsFile": "./server.js"
+      "name": "gongjuxiang",
+      "runtime": "nodejs16",
+      "handler": "server.handler"
+    },
+    "assets": {
+      "dir": "./",
+      "ignore": [
+        "node_modules",
+        ".git"
+      ]
+    },
+    "build": {
+      "command": "npm install",
+      "outputDir": "./"
     }
   }
 }

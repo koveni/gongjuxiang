@@ -4,15 +4,11 @@ const app = require('./backend/app');
 // 端口配置
 const PORT = process.env.PORT || 3000;
 
-// 对于阿里云 ESA 函数，导出 handler 函数
-if (typeof module !== 'undefined' && module.exports) {
-    // ESA 函数格式
-    module.exports.handler = async (event, context) => {
-        // 这里可以添加 ESA 函数的处理逻辑
-        // 由于我们使用 Express 应用，实际上 ESA 会自动处理请求
-        return app;
-    };
-}
+// 导出 handler 函数，用于阿里云 ESA 函数
+module.exports.handler = async (event, context) => {
+    // 阿里云 ESA 函数会自动将请求转发给 Express 应用
+    return app;
+};
 
 // 对于本地开发，创建 HTTP 服务器
 if (require.main === module) {
