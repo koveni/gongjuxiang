@@ -1,21 +1,8 @@
 {
-  "config": {
-    "function": {
-      "name": "gongjuxiang",
-      "runtime": "nodejs16",
-      "handler": "server.handler"
-    },
-    "assets": {
-      "directory": "./dist",
-      "ignore": [
-        "node_modules",
-        ".git"
-      ]
-    },
-    "build": {
-      "command": "npm install",
-      "outputDir": "./"
-    },
-    "entry": "./dist/app.js"
+  "name": "dagan-gongjuxiang",
+  "installCommand": "npm install",
+  "assets": {
+    "directory": "./dist",
+    "notFoundStrategy": "singlePageApplication"
   }
 }
