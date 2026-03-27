@@ -4,10 +4,7 @@
   "description": "外贸工具箱 - 集合各种外贸相关工具的网站",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "echo \"Build completed\""
+    "build": "mkdir dist && echo \"<h1>部署成功</h1>\" > dist/index.html"
   },
   "keywords": [
     "外贸",
