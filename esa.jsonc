@@ -1,0 +1,10 @@
+{
+  "config": {
+    "assets": {
+      "dir": "./"
+    },
+    "function": {
+      "jsFile": "./server.js"
+    }
+  }
+}
