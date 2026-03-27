@@ -4,7 +4,7 @@
   "description": "外贸工具箱 - 集合各种外贸相关工具的网站",
   "main": "server.js",
   "scripts": {
-    "build": "mkdir dist && echo \"<h1>部署成功</h1>\" > dist/index.html && touch dist/app.js"
+    "build": "mkdir dist && echo \"<h1>部署成功</h1>\" > dist/index.html && echo \"console.log('App loaded');\" > dist/app.js"
   },
   "keywords": [
     "外贸",
