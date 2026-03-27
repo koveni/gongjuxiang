@@ -6,7 +6,7 @@
       "handler": "server.handler"
     },
     "assets": {
-      "dir": "./",
+      "dir": "dist",
       "ignore": [
         "node_modules",
         ".git"
