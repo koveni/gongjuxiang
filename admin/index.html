@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+    <meta name="description" content="网站后台管理系统">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>后台管理</h1>
+            <button class="logout-btn" id="logout-btn">退出登录</button>
+        </header>
+        
+        <div class="admin-content">
+            <!-- 左侧导航 -->
+            <aside class="admin-sidebar">
+                <nav>
+                    <ul>
+                        <li><button class="nav-btn active" data-section="dashboard-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('dashboard-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">首页</button></li>
+                        <li><button class="nav-btn" data-section="home-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('home-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">网站设置</button></li>
+                        <li><button class="nav-btn" data-section="categories-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('categories-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">分类管理</button></li>
+                        <li><button class="nav-btn" data-section="tools-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('tools-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">工具管理</button></li>
+                        <li><button class="nav-btn" data-section="pages-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('pages-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">页面管理</button></li>
+                        <li><button class="nav-btn" data-section="users-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('users-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">用户管理</button></li>
+                        <li><button class="nav-btn" data-section="ads-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('ads-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">广告管理</button></li>
+                        <li><button class="nav-btn" data-section="data-section" onclick="document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.getElementById('data-section').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');">数据管理</button></li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <!-- 右侧内容 -->
+            <main class="admin-main">
+                <!-- 首页 -->
+                <section id="dashboard-section" class="section active">
+                    <div class="section-header">
+                        <h2>首页</h2>
+                    </div>
+                    
+                    <div class="home-container">
+                        <!-- 欢迎区域 -->
+                        <div class="home-welcome">
+                            <h3>欢迎回来，管理员</h3>
+                            <p id="welcome-message">今天是 <span id="current-date"></span>，祝您工作愉快！</p>
+                            <div class="system-time">
+                                <span>系统时间：</span>
+                                <span id="current-time"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- 工具概览 -->
+                        <div class="home-overview">
+                            <h3>工具概览</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">📊</div>
+                                    <div class="stat-content">
+                                        <div class="stat-value" id="total-tools">0</div>
+                                        <div class="stat-label">工具总数</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">📁</div>
+                                    <div class="stat-content">
+                                        <div class="stat-value" id="total-categories">0</div>
+                                        <div class="stat-label">分类数量</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        
+                        <!-- 服务器配置 -->
+                        <div class="server-info">
+                            <h3>服务器配置</h3>
+                            <div class="server-details">
+                                <div class="server-item">
+                                    <span class="server-label">服务器类型：</span>
+                                    <span class="server-value">本地开发服务器</span>
+                                </div>
+                                <div class="server-item">
+                                    <span class="server-label">运行环境：</span>
+                                    <span class="server-value">Python HTTP Server</span>
+                                </div>
+                                <div class="server-item">
+                                    <span class="server-label">端口号：</span>
+                                    <span class="server-value">8000</span>
+                                </div>
+                                <div class="server-item">
+                                    <span class="server-label">数据存储：</span>
+                                    <span class="server-value">localStorage</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 最近活动 -->
+                        <div class="home-recent">
+                            <h3>最近活动</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <span class="activity-time">刚刚</span>
+                                    <span class="activity-action">更新了网站设置</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-time">1小时前</span>
+                                    <span class="activity-action">添加了新工具</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-time">2小时前</span>
+                                    <span class="activity-action">修改了页脚设置</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 网站设置 -->
+                <section id="home-section" class="section">
+                    <div class="section-header">
+                        <h2>网站设置</h2>
+                    </div>
+                    
+                    <div class="form-container">
+                        <form id="home-form">
+                            <div class="form-group">
+                                <label for="home-logo">网站Logo</label>
+                                <input type="file" id="home-logo" name="home-logo" accept="image/*">
+                                <div id="logo-preview" style="margin-top: 10px;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="home-title">网站标题</label>
+                                <input type="text" id="home-title" name="home-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="home-subtitle">网站副标题</label>
+                                <input type="text" id="home-subtitle" name="home-subtitle">
+                            </div>
+                            <div class="form-group">
+                                <label for="home-description">网站描述</label>
+                                <textarea id="home-description" name="home-description" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="home-keywords">网站关键词</label>
+                                <input type="text" id="home-keywords" name="home-keywords">
+                            </div>
+                            <div class="form-group">
+                                <label for="home-theme">主题风格</label>
+                                <select id="home-theme" name="home-theme">
+                                    <option value="light">浅色</option>
+                                    <option value="dark">夜色</option>
+                                    <option value="blue">蓝色</option>
+                                    <option value="gray">灰色</option>
+                                    <option value="black">黑色</option>
+                                    <option value="custom">自定义</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="custom-theme-upload" style="display: none;">
+                                <label for="home-custom-theme">上传自定义主题</label>
+                                <input type="file" id="home-custom-theme" name="home-custom-theme" accept=".css">
+                                <div id="theme-preview" style="margin-top: 10px;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="home-layout">布局风格</label>
+                                <select id="home-layout" name="home-layout">
+                                    <option value="normal">默认布局</option>
+                                    <option value="fullscreen">全屏布局</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 页脚设置 -->
+                            <div class="form-group">
+                                <label for="footer-links">页脚链接</label>
+                                <textarea id="footer-links" name="footer-links" rows="4" placeholder="例如: &lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot;&gt;网站名称&lt;/a&gt;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="footer-copyright">版权信息</label>
+                                <textarea id="footer-copyright" name="footer-copyright" rows="2" required placeholder="例如: &lt;p&gt;&copy; 2024 外贸工具箱 版权所有&lt;/p&gt;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="footer-statement">声明</label>
+                                <textarea id="footer-statement" name="footer-statement" rows="4" placeholder="输入声明内容"></textarea>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <button type="submit" class="btn-primary">保存设置</button>
+                            </div>
+                            <div class="success-message" id="home-success"></div>
+                        </form>
+                    </div>
+                </section>
+                
+                <!-- 分类管理 -->
+                <section id="categories-section" class="section">
+                    <div class="section-header">
+                        <h2>分类管理</h2>
+                        <button id="add-category-btn" class="btn-primary">添加分类</button>
+                    </div>
+                    
+                    <!-- 分类列表 -->
+                    <div id="categories-list-content"></div>
+                </section>
+                
+                <!-- 工具管理 -->
+                <section id="tools-section" class="section">
+                    <div class="section-header">
+                        <h2>工具管理</h2>
+                        <button id="add-tool-btn" class="btn-primary">添加工具</button>
+                    </div>
+                    
+                    <!-- 工具列表 -->
+                    <div style="margin-bottom: 20px;">
+                        <label for="filter-category" style="margin-right: 10px;">按分类筛选：</label>
+                        <select id="filter-category" style="padding: 8px 12px; border: 2px solid #e2e8f0; border-radius: 4px;">
+                            <option value="">全部分类</option>
+                        </select>
+                    </div>
+                    <div id="tools-list-content"></div>
+                </section>
+                
+
+                
+                <!-- 页面管理 -->
+                <section id="pages-section" class="section">
+                    <div class="section-header">
+                        <h2>页面管理</h2>
+                        <button id="add-page-btn" class="btn-primary">添加页面</button>
+                    </div>
+                    
+                    <div id="pages-list-content"></div>
+                </section>
+                
+                <!-- 用户管理 -->
+                <section id="users-section" class="section">
+                    <div class="section-header">
+                        <h2>用户管理</h2>
+                        <button id="add-user-btn" class="btn-primary">添加用户</button>
+                    </div>
+                    
+                    <div id="users-list-content"></div>
+                </section>
+                
+                <!-- 广告管理 -->
+                <section id="ads-section" class="section">
+                    <div class="section-header">
+                        <h2>广告管理</h2>
+                        <button id="add-ad-btn" class="btn-primary">添加广告</button>
+                    </div>
+                    
+                    <div id="ads-list-content"></div>
+                </section>
+                
+                <!-- 数据管理 -->
+                <section id="data-section" class="section">
+                    <div class="section-header">
+                        <h2>数据管理</h2>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 30px;">
+                        <!-- 数据导出 -->
+                        <div class="home-overview">
+                            <h3>数据导出</h3>
+                            <div style="margin-bottom: 20px;">
+                                <button id="sync-data-btn" class="btn-primary" style="width: 100%;">下载数据库文件</button>
+                            </div>
+                            
+                            <div style="margin-bottom: 20px; padding: 15px; background-color: #e2e8f0; border-radius: 6px; font-size: 14px;">
+                                <p><strong>功能说明：</strong>将当前所有数据同步到数据库文件，确保数据持久化保存。</p>
+                                <p><strong>操作步骤：</strong></p>
+                                <ol style="margin: 10px 0; padding-left: 20px;">
+                                    <li>点击"下载数据库文件"按钮</li>
+                                    <li>下载生成的JSON文件</li>
+                                    <li>使用数据上传功能将文件上传到GitHub仓库</li>
+                                </ol>
+                            </div>
+                            
+                            <h4>模块数据导出</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                                <button id="export-categories-btn" class="btn-secondary">导出分类数据</button>
+                                <button id="export-tools-btn" class="btn-secondary">导出工具数据</button>
+                                <button id="export-home-btn" class="btn-secondary">导出网站设置</button>
+                                <button id="export-footer-btn" class="btn-secondary">导出页脚设置</button>
+                                <button id="export-pages-btn" class="btn-secondary">导出页面数据</button>
+                                <button id="export-users-btn" class="btn-secondary">导出用户数据</button>
+                                <button id="export-ads-btn" class="btn-secondary">导出广告数据</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 数据上传 -->
+                        <div class="home-overview">
+                            <h3>数据上传</h3>
+                            <div style="margin-bottom: 20px;">
+                                <a href="https://github.com/koveni/gongjuxiang" target="_blank" class="btn-primary" style="display: block; text-align: center; padding: 12px; text-decoration: none; border-radius: 6px;">上传数据库至GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </section>
+            </main>
+        </div>
+        
+        <!-- 弹窗容器 -->
+        <div id="modal-overlay" class="modal-overlay" style="display: none;">
+            <div class="modal">
+                <!-- 分类表单弹窗 -->
+                <div id="category-modal" class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="category-modal-title">添加分类</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="add-category-form">
+                        <input type="hidden" id="category-id" name="category-id">
+                        <div class="form-group">
+                            <label for="category-name">分类名称</label>
+                            <input type="text" id="category-name" name="category-name" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="modal-close-btn">取消</button>
+                            <button type="submit" class="submit-btn">添加分类</button>
+                        </div>
+                        <div class="success-message" id="category-success"></div>
+                    </form>
+                </div>
+                
+                <!-- 工具表单弹窗 -->
+                <div id="tool-modal" class="modal-content" style="display: none;">
+                    <div class="modal-header">
+                        <h3 id="tool-modal-title">添加工具</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="add-tool-form">
+                        <input type="hidden" id="tool-id" name="tool-id">
+                        <div class="form-group">
+                            <label for="tool-category">所属分类</label>
+                            <select id="tool-category" name="tool-category" required>
+                                <option value="">请选择分类</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tool-name">工具名称</label>
+                            <input type="text" id="tool-name" name="tool-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tool-description">工具描述</label>
+                            <textarea id="tool-description" name="tool-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="tool-url">工具链接</label>
+                            <input type="url" id="tool-url" name="tool-url" required>
+                        </div>
+                        <div class="form-group">
+                            <label>工具图标上传方式</label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <label style="display: flex; align-items: center; cursor: pointer; padding: 12px 20px; background: #f8fafc; border-radius: 8px; transition: all 0.3s;">
+                                    <input type="radio" name="icon-upload-type" value="file" checked style="flex-shrink: 0;">
+                                    <span style="margin-left: 10px; font-weight: 500;">图片上传</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer; padding: 12px 20px; background: #f8fafc; border-radius: 8px; transition: all 0.3s;">
+                                    <input type="radio" name="icon-upload-type" value="url" style="flex-shrink: 0;">
+                                    <span style="margin-left: 10px; font-weight: 500;">链接上传</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 文件上传 -->
+                        <div class="form-group" id="file-upload-group">
+                            <label>选择图片文件</label>
+                            <div style="margin-top: 10px;">
+                                <label for="tool-icon" style="display: block; padding: 15px; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.3s;">
+                                    <div style="font-size: 24px; margin-bottom: 8px;">🖼️</div>
+                                    <div style="color: #64748b; font-size: 14px;">点击或拖拽图片到此处上传</div>
+                                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">支持 JPG, PNG, GIF (最大 2MB)</div>
+                                    <input type="file" id="tool-icon" name="tool-icon" accept="image/*" style="display: none;">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- URL上传 -->
+                        <div class="form-group" id="url-upload-group" style="display: none;">
+                            <label for="tool-icon-url">图片链接</label>
+                            <div style="position: relative; margin-top: 10px;">
+                                <input type="url" id="tool-icon-url" name="tool-icon-url" placeholder="输入图片URL" style="padding-right: 80px;">
+                                <button type="button" id="preview-url-btn" style="position: absolute; right: 0; top: 0; height: 100%; padding: 0 15px; background: #3b82f6; color: white; border: none; border-radius: 0 6px 6px 0; cursor: pointer;">预览</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 图片预览 -->
+                        <div id="icon-preview" style="margin-top: 20px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; text-align: center; background: #f8fafc; display: none;">
+                            <img id="preview-image" src="" alt="预览图片" style="max-width: 100%; max-height: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <button type="button" id="clear-preview-btn" style="margin-top: 10px; padding: 5px 15px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer;">清除预览</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="modal-close-btn">取消</button>
+                            <button type="submit" class="submit-btn">添加工具</button>
+                        </div>
+                        <div class="success-message" id="tool-success"></div>
+                    </form>
+                </div>
+                
+                <!-- 广告表单弹窗 -->
+                <div id="ad-modal" class="modal-content" style="display: none;">
+                    <div class="modal-header">
+                        <h3 id="ad-modal-title">添加广告</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="add-ad-form">
+                        <input type="hidden" id="ad-id" name="ad-id">
+                        <div class="form-group">
+                            <label for="ad-name">广告名称</label>
+                            <input type="text" id="ad-name" name="ad-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ad-url">广告链接</label>
+                            <input type="url" id="ad-url" name="ad-url" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ad-image">广告图片</label>
+                            <input type="file" id="ad-image" name="ad-image" accept="image/*">
+                            <div id="ad-image-preview" style="margin-top: 10px;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ad-position">广告位置</label>
+                            <select id="ad-position" name="ad-position" required>
+                                <option value="sidebar">右侧悬浮</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ad-status">广告状态</label>
+                            <select id="ad-status" name="ad-status" required>
+                                <option value="active">启用</option>
+                                <option value="inactive">禁用</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="modal-close-btn">取消</button>
+                            <button type="submit" class="submit-btn">添加广告</button>
+                        </div>
+                        <div class="success-message" id="ad-success"></div>
+                    </form>
+                </div>
+                
+                <!-- 页面表单弹窗 -->
+                <div id="page-modal" class="modal-content" style="display: none;">
+                    <div class="modal-header">
+                        <h3 id="page-modal-title">添加页面</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="add-page-form">
+                        <input type="hidden" id="page-id" name="page-id">
+                        <div class="form-group">
+                            <label for="page-title">页面标题</label>
+                            <input type="text" id="page-title" name="page-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="page-slug">页面别名</label>
+                            <input type="text" id="page-slug" name="page-slug" placeholder="例如: about-us">
+                        </div>
+                        <div class="form-group">
+                            <label for="page-content">页面内容</label>
+                            <textarea id="page-content" name="page-content" rows="10" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="page-status">页面状态</label>
+                            <select id="page-status" name="page-status" required>
+                                <option value="published">发布</option>
+                                <option value="draft">草稿</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="modal-close-btn">取消</button>
+                            <button type="submit" class="submit-btn">添加页面</button>
+                        </div>
+                        <div class="success-message" id="page-success"></div>
+                    </form>
+                </div>
+                
+                <!-- 用户表单弹窗 -->
+                <div id="user-modal" class="modal-content" style="display: none;">
+                    <div class="modal-header">
+                        <h3 id="user-modal-title">添加用户</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="add-user-form">
+                        <input type="hidden" id="user-id" name="user-id">
+                        <div class="form-group">
+                            <label for="user-username">用户名</label>
+                            <input type="text" id="user-username" name="user-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-password">密码</label>
+                            <input type="password" id="user-password" name="user-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-role">角色</label>
+                            <select id="user-role" name="user-role" required>
+                                <option value="admin">管理员</option>
+                                <option value="editor">编辑</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="modal-close-btn">取消</button>
+                            <button type="submit" class="submit-btn">添加用户</button>
+                        </div>
+                        <div class="success-message" id="user-success"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+    <script>
+        // 测试函数
+        function testFunction() {
+            alert('JavaScript 正常执行！');
+        }
+        
+        // 页面加载完成后测试
+        window.onload = function() {
+            console.log('页面加载完成');
+            // 测试导航功能
+            console.log('测试导航功能...');
+            
+            // 为所有导航按钮添加点击事件
+            const navButtons = document.querySelectorAll('.nav-btn');
+            console.log('找到导航按钮数量:', navButtons.length);
+            
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('点击按钮:', this.textContent);
+                    const targetSection = this.getAttribute('data-section');
+                    console.log('目标section:', targetSection);
+                    
+                    // 手动切换section
+                    document.querySelectorAll('.section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                        console.log('显示section:', targetSection);
+                    } else {
+                        console.log('未找到section:', targetSection);
+                    }
+                });
+            });
+        };
+    </script>
+</body>
+</html>
