@@ -6,7 +6,7 @@
       "handler": "server.handler"
     },
     "assets": {
-      "dir": "dist",
+      "directory": "./dist",
       "ignore": [
         "node_modules",
         ".git"
@@ -15,6 +15,7 @@
     "build": {
       "command": "npm install",
       "outputDir": "./"
-    }
+    },
+    "entry": "./dist/app.js"
   }
 }
